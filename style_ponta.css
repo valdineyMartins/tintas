@@ -1,0 +1,32 @@
+.blocos {
+    width: 95%;
+    margin-top: 10px;
+    display: flex;          /* coloca os elementos lado a lado */
+    background-color:white;
+    color: black;
+    font-size: 19px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+h5{
+    text-align: center;
+    font-size: 120%;
+}
+#blocos{
+    width: 15%; /* ajuste o tamanho da imagem */
+    height: auto;
+}
+@media (max-width: 720px) {
+ #blocos{
+    width: 50%;
+    height: 200px;
+    
+   
+}
+.blocos{
+    font-size: 100%;
+   
+}
+
+}
