@@ -566,3 +566,26 @@ main,
         padding: 10px;
     }
 }
+/* ===== COR DOS BOTÕES — TEXTO BRANCO (não azul) ===== */
+.botoes_aprender a,
+.botoes_aprender a:link,
+.botoes_aprender a:visited {
+    color: white !important;
+    text-decoration: none;
+}
+
+.botoes_aprender a:hover {
+    color: black !important;
+}
+
+/* Também garante branco nos links dentro dos botões na barra escura */
+.barra-botoes a,
+.o_que_vender a {
+    color: white !important;
+    text-decoration: none;
+}
+
+.barra-botoes a:hover,
+.o_que_vender a:hover {
+    color: black !important;
+}
