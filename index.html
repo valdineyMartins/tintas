@@ -3,61 +3,983 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tintas - Catálogos e Manuais</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Pintores - Jataí-GO | Diretório de Profissionais</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        :root {
+            --cor-principal: #1a73e8;
+            --cor-secundaria: #f57c00;
+            --cor-fundo: #f8fafc;
+            --cor-cartao: #ffffff;
+            --cor-texto: #202124;
+            --cor-texto-claro: #5f6368;
+            --sombra: 0 4px 12px rgba(0,0,0,0.08);
+            --sombra-hover: 0 8px 24px rgba(26, 115, 232, 0.15);
+            --borda: 1px solid #e8eaed;
+        }
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+        .cabecalho {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 3px solid transparent;
+            border-image: linear-gradient(to right, var(--cor-principal), var(--cor-secundaria)) 1;
+        }
+        .cabecalho h1 {
+            font-size: 2rem;
+            color: var(--cor-principal);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .cabecalho p {
+            color: var(--cor-texto-claro);
+            font-size: 1.1rem;
+        }
+        .grade-pintores {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .cartao-pintor {
+            background: var(--cor-cartao);
+            border-radius: 12px;
+            box-shadow: var(--sombra);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: var(--borda);
+        }
+        .cartao-pintor:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--sombra-hover);
+        }
+        .cabecalho-cartao {
+            height: 180px;
+            background: linear-gradient(135deg, var(--cor-principal), #4285f4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .foto-perfil {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            background: #ddd;
+        }
+        .corpo-cartao {
+            padding: 1.5rem;
+        }
+        .nome {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--cor-principal);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px dashed #dadce0;
+        }
+        .dados-contato {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .item-contato {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+        .rotulo {
+            font-weight: 600;
+            color: var(--cor-secundaria);
+            min-width: 80px;
+        }
+        .rodape {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            color: var(--cor-texto-claro);
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .cabecalho h1 {
+                font-size: 1.5rem;
+            }
+            .grade-pintores {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    
-    <!-- MENU DE NAVEGAÇÃO -->
-    <nav>
-        <ul>
-            <li><a href="index.html">Início</a></li>
-            <li><a href="catalogos.html">Catálogos</a></li>    
-             <li><a href="https://valdineymartins.github.io/pintores/" target="_blank">Pintores</a></li> 
-            <li><a href="aprender.html">Aprender</a></li>        
-        </ul>
-    </nav>
-
-    <main>
-        <!-- BARRA DE BOTÕES — ESTILO IGUAL AO MENU -->
-        <div class="o_que_vender">
-            <h2>O que seu cliente deseja?</h2>
-            <div class="grupo">
-                <a href="https://drive.google.com/file/d/1xYfHgI1KbQ_SH3VjZiZPFKm_arFQm9VM/view?usp=sharing" target="_blank">
-                    <button>Tintas acrílica para paredes</button>
-                </a>
-                <a href="https://drive.google.com/file/d/15fysZhbpfigP_QowiHclUqCZeBm6zp0D/view?usp=sharing" target="_blank">
-                    <button>Tintas e resinas p/ pisos porosos</button>
-                </a>
-                <a href="https://drive.google.com/file/d/1sjgiEy3woMAiLj0qj3OMYoZ3GZLrHpvC/view?usp=sharing" target="_blank">
-                    <button>Esmaltes p/madeiras e metais</button>
-                </a>
-                <a href="https://drive.google.com/file/d/1RpSiihXXZvgEKu8DmyBVfJw6RvX__2jX/view?usp=sharing" target="_blank">
-                    <button>Vernizes e comp p/ madeiras</button>          
-                </a>
-                <a href="https://drive.google.com/file/d/1VlshTRZoX4_LxmewiVV5E9aTjLpOWoTq/view?usp=sharing" target="_blank">
-                    <button>Imper p/paredes/telhados e lajes</button>
-                </a>
-                <a href="https://www.coral.com.br/pt/paletas-de-cork" target="_blank">
-                    <button>Leque de cores (Coral)</button>          
-                </a>
+    <header class="cabecalho">
+        <h1>pINTORES – Jataí-GO</h1>
+        <p>Parceiros</p>
+    </header>
+    <main class="grade-pintores">
+        <!-- Cartão 1 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="fabio_junio.png" alt="Fábio Junio Costa Martins" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">Fábio Junio Costa Martins</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99973-2538</div>
+                </div>
             </div>
         </div>
-
-        <!-- DESTAQUES / IMAGENS -->
-        <section class="destaques">
-            <img src="https://images.akzonobel.com/akzonobel-flourish/coral/br/pt/coral-decora/banner-desktop-1900x765-a436bdeb.jpg?impolicy=.auto&imwidth=1366" alt="Banner Coral Decora"> 
-            <img src="https://images.akzonobel.com/akzonobel-flourish/coral/coralmaster/01-billboard-hero-1366x620png.png?impolicy=.auto&imwidth=1366" alt="CoralMaster">
-            <img src="https://mkpcoral.vtexassets.com/assets/vtex.file-manager-graphql/images/2ecfcef6-7674-45ac-8909-5d63cfe90be2___a8cb45c4f6c0ead7a2a105ec99d50869.png" alt="Cores Coral">
-        </section>   
-    </main>
-
-    <!-- RODAPÉ -->
-    <footer>
-        <a href="https://wa.me/5564999312194?text=meu%20link" target="_blank">
-            <img id="icone" src="whatsapp.png" alt="WhatsApp"> Valdiney Martins
-        </a>
-    </footer>
- 
-</body>
-</html>
+        <!-- Cartão 2 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="NETO FEIJAO.png" alt="José Oliveira de Soares - Feijão" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">José Oliveira de Soares – Feijão</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99973-1747</div>
+                </div>
+            </div>
+        </div>
+        <!-- Cartão 3 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="sebastiao dutra.png" alt="Sebastião Aparecido Dutra do Carmo" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">Sebastião Aparecido Dutra do Carmo</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99958-1200</div>
+                </div>
+            </div>
+        </div>
+        <!-- Cartão 4 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="REI.png" alt="Vanderley Peres do Nascimento - Rey" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">Vanderley Peres do Nascimento – Rey</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99268-9443</div>
+                </div>
+            </div>
+        </div>
+        <!-- Cartão 5 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="VALDINEY VIANA NEY.png" alt="Valdinei Viana dos Santos - Nei" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">Valdinei Viana dos Santos – Nei</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99654-9559</div>
+                </div>
+            </div>
+        </div>
+        <!-- Cartão 6 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="LUCIO.png" alt="Lúcio Mauro dos Santos Alves" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">Lúcio Mauro dos Santos Alves</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99957-0221</div>
+                </div>
+            </div>
+        </div>
+        <!-- Cartão 7 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="jorge claro.png" alt="Jorge Claro de Jesus" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">Jorge Claro de Jesus</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99994-8775</div>
+                </div>
+            </div>
+        </div>
+        <!-- Cartão 8 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="Gilberto mattos.png" alt="Gilberto Pereira Matos" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">Gilberto Pereira Matos</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99905-3462</div>
+                </div>
+            </div>
+        </div>
+        <!-- Cartão 9 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="ROBSON FERREIRA.png" alt="Robson Ferreira de Oliveira" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">Robson Ferreira de Oliveira</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99922-8799</div>
+                </div>
+            </div>
+        </div>
+        <!-- Cartão 10 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="eduardo apolinarioa.png" alt="Eduardo Apolinário Ferreira" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">Eduardo Apolinário Ferreira</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99617-7739</div>
+                </div>
+            </div>
+        </div>
+         <!-- Cartão 11 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="avatar.jpg" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">CARLOS CASSIMIRA ALVES</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99647-7981</div>
+                </div>
+            </div>
+        </div>
+           <!-- Cartão 12 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="rafael junior.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">RAFAEL JUNIOR ALMEIDA DE OLIVEIRA</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (66) 99721-1110</div>
+                </div>
+            </div>
+        </div>
+          <!-- Cartão 13 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="newton.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">NEWTON FERREIRA GONCALVES - NETO</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99974-4822</div>
+                </div>
+            </div>
+        </div>
+              <!-- Cartão 14 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="CARLIN MENDONCA.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">CARLOS ALBERTO MENDONCA - CARLIN</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99955-7839</div>
+                </div>
+            </div>
+        </div>
+                   <!-- Cartão 15 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="DANUBIO.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">DANUBIO FERNANDO DE SOUZA COSTA</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99935-2140</div>
+                </div>
+            </div>
+        </div>
+                 <!-- Cartão 16 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="aldeci.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">ALDECI FERREIRA SOARES</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99928-1158</div>
+                </div>
+            </div>
+        </div>
+            <!-- Cartão 17 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="avatar.jpg" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">EDMILSON BEZERRA VIEIRA</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99655-1123</div>
+                </div>
+            </div>
+        </div>
+           <!-- Cartão 18 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="felipe silva.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">FELIPE DA SILVA PEREIRA</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99941-2145</div>
+                </div>
+            </div>
+        </div>
+        <!-- Cartão 19 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="raimundo conceicao.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">RAIMUNDO JOSE CONCEICAO PEREIRA</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99626-3975</div>
+                </div>
+            </div>
+        </div>
+                    <!-- Cartão 20 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="edenaldo kita.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">EDENALDO JOSE DOS SANTOS KITA OU BAIANO</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99961-2438</div>
+                </div>
+            </div>
+        </div>
+  
+         <!-- Cartão 21 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="juvenal carvalho.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">JUVENAL CARVALHO DE OLIVEIRA</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99626-1870</div>
+                </div>
+            </div>
+        </div>
+             <!-- Cartão 22 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="domingos paiva.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">DOMINGOS ALEXANDRE DE PAIVA </h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99963-4299</div>
+                </div>
+            </div>
+        </div>
+                 <!-- Cartão 23 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="antonio neto.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">ANTONIO JOSE GONCALVES NETO </h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99902-0420</div>
+                </div>
+            </div>
+        </div>
+               <!-- Cartão 24 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="emilton junio.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">ENILTON FERREIRA DA SILVA JUNIOR</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99603-0800</div>
+                </div>
+            </div>
+        </div>
+        <!-- Cartão 25 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="alcidino.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">ALCIDINO MARCOS FERREIRA</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99645-5901</div>
+                </div>
+            </div>
+        </div>
+        
+            <!-- Cartão 26 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="thais alcidino.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">Thais</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 98129-9753</div>
+                </div>
+            </div>
+        </div>
+        <!-- Cartão 27 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="leonardo achumaro.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">LEONARDO ACHUMARO</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99328-3375</div>
+                </div>
+            </div>
+        </div>
+             <!-- Cartão 28 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="alessandro ashumaro.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">ALESSANDRO ACHUMARO</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (62) 98571-0026</div>
+                </div>
+            </div>
+        </div>
+              <!-- Cartão 29 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="RONE SERGIO.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">RONE SERGIO CARVALHO ARAGÃO</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99626-3771</div>
+                </div>
+            </div>
+        </div>
+                     <!-- Cartão 30 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="gleidenir.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">GLEIDENIR ALVES DA SILVA - TATINHA</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99646-4993</div>
+                </div>
+            </div>
+        </div>
+                            <!-- Cartão 31 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="heraldo.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">HERALDO TEIXEIRA DOS SANTOS</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99653-3628</div>
+                </div>
+            </div>
+        </div>
+                             <!-- Cartão 32 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="gabriel carrijo.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">GABRIEL CONCEICAO CARRIJO</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99648-7896</div>
+                </div>
+            </div>
+        </div>
+        
+                             <!-- Cartão 33 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="jefferson alves.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">JEFFERSON ALVES DE AGUIAR</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99658-7946</div>
+                </div>
+            </div>
+        </div>
+                               <!-- Cartão 34 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="claudivino.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">CLAUDIVINO ALVES PEREIRA</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 98114-6649</div>
+                </div>
+            </div>
+        </div>
+                                   <!-- Cartão 35 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="eduardo goncalves.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">EDUARDO HENRIQUE GONCALVES</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99924-8695</div>
+                </div>
+            </div>
+        </div>
+      
+        <!-- Cartão 36 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="reginaldo machado.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">REGINALDO MACHADO GUIMARAES</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99976-6905</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Cartão 37 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="jose roberto venc.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">JOSE ROBERTO VENCESLAU SILVA</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99942-9801</div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- Cartão 38 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="zilmar.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">ZILMAR GONCALVES DA SILVA</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99958-5598</div>
+                </div>
+            </div>
+        </div>
+         <!-- Cartão 39 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="avatar.jpg" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">EDUARDO SANTOS CARNEIRO</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 98118-6759</div>
+                </div>
+            </div>
+        </div>
+           <!-- Cartão 40 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="marcus manfrim.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">MARCOS ANTONIO SEVERINO MANFRIN</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99977-9802</div>
+                </div>
+            </div>
+        </div>
+                  <!-- Cartão 41 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="uelson.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">UELSON JOSE RODRIGUES DE SOUZA</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99957-7681</div>
+                </div>
+            </div>
+        </div>
+                         <!-- Cartão 42 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="lazaro roberto.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">LAZARO ROBERTO BERNARDES SILVA</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99958-7229</div>
+                </div>
+            </div>
+        </div>
+                                <!-- Cartão 43 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="MILTON MELO.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">MILTON DE ALMEIDA MELO</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99219-5593</div>
+                </div>
+            </div>
+        </div>
+                                 <!-- Cartão 44 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="avatar.jpg" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">ROGERIO MARTINS DOS REIS - PIMBA</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99606-6280</div>
+                </div>
+            </div>
+        </div>
+                                <!-- Cartão 45 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="wlisses gauchinho.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">WLISSES BARBOSA DOS SANTOS </h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99994-0283</div>
+                </div>
+            </div>
+        </div>
+                                    <!-- Cartão 46 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="kaique.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">KAIQUE FERREIRA DA SILVA </h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99230-5239</div>
+                </div>
+            </div>
+        </div>
+        
+                                    <!-- Cartão 47 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="eliomar.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">ELIOMAR FERREIRA DE SOUZA</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99949-0728</div>
+                </div>
+            </div>
+        </div>
+        <!-- Cartão 48 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="avatar.jpg" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">JOAO PAULO SILVA COELHO</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99270-8244</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Cartão 49 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="DENIS FILHO.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">ALDEUNIZ NUNES FREITAS FILHO - DENIS</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99279-9589</div>
+                </div>
+            </div>
+        </div>
+        <!-- Cartão 50 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="teres siganpo.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">TERES DE JESUS GOMES</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99279-9589</div>
+                </div>
+            </div>
+        </div>
+           <!-- Cartão 51 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="victor.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">VICTOR RIBEIRO COSTA</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span>(64) 99972-3218</div>
+                </div>
+            </div>
+        </div>
+              <!-- Cartão 52 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="avatar.jpg" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                
+                <div class="dados-contato">
+                    <h2 class="nome">ANDRE LUIZ PARREIRA CABRAL JUNIOR</h2>
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99279-7123</div>
+                </div>
+            </div>
+        </div>
+           <!-- Cartão 53 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="noe paulino.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">NOE PAULINO DA SILVA</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99606-0220</div>
+                </div>
+            </div>
+        </div>
+         
+        <!-- Cartão 54 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="wekslay.png" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">WESKLEY NOGUEIRA DO CARMO</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99962-9389</div>
+                </div>
+            </div>
+        </div>
+            <!-- Cartão 55 -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="avatar.jpg" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">DOUGLAS FERREIRA DOS SANTOS</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> (64) 99931-9796</div>
+                </div>
+            </div>
+        </div>
+               <!-- Cartões vazios -->
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="avatar.jpg" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">...</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> ....</div>
+                </div>
+            </div>
+        </div>
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="avatar.jpg" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">...</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> ....</div>
+                </div>
+            </div>
+        </div>
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="avatar.jpg" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">...</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> ....</div>
+                </div>
+            </div>
+        </div>
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="avatar.jpg" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">...</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> ....</div>
+                </div>
+            </div>
+        </div>
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="avatar.jpg" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">...</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> ....</div>
+                </div>
+            </div>
+        </div>
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="avatar.jpg" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">...</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> ....</div>
+                </div>
+            </div>
+        </div>
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="avatar.jpg" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">...</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> ....</div>
+                </div>
+            </div>
+        </div>
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="avatar.jpg" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">...</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> ....</div>
+                </div>
+            </div>
+        </div>
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="avatar.jpg" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">...</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> ....</div>
+                </div>
+            </div>
+        </div>
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="avatar.jpg" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">...</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> ....</div>
+                </div>
+            </div>
+        </div>
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="avatar.jpg" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">...</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> ....</div>
+                </div>
+            </div>
+        </div>
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="avatar.jpg" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">...</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> ....</div>
+                </div>
+            </div>
+        </div>
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="avatar.jpg" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">...</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> ....</div>
+                </div>
+            </div>
+        </div>
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="avatar.jpg" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">...</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> ....</div>
+                </div>
+            </div>
+        </div>
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="avatar.jpg" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">...</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> ....</div>
+                </div>
+            </div>
+        </div>
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="avatar.jpg" alt="" class="foto-perfil">
+            </div>
+            <div class="corpo-cartao">
+                <h2 class="nome">...</h2>
+                <div class="dados-contato">
+                    <div class="item-contato"><span class="rotulo">Telefone:</span> ....</div>
+                </div>
+            </div>
+        </div>
+        <div class="cartao-pintor">
+            <div class="cabecalho-cartao">
+                <img src="avatar.jpg" alt="" class
